@@ -1,0 +1,7 @@
+2024-04-05 01:54:14,389 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-04-05 01:55:43,589 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-04-05 01:55:43,607 - __main__ - DEBUG - app is starting up
+2024-04-05 01:56:20,298 - __main__ - DEBUG - app is sutting down
+2024-04-05 01:56:32,513 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-04-05 01:56:32,531 - __main__ - DEBUG - app is starting up
+2024-04-05 01:56:42,326 - __main__ - DEBUG - app is sutting down
