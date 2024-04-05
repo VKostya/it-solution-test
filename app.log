@@ -1,7 +1,44 @@
-2024-04-05 01:54:14,389 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-04-05 01:55:43,589 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-04-05 01:55:43,607 - __main__ - DEBUG - app is starting up
-2024-04-05 01:56:20,298 - __main__ - DEBUG - app is sutting down
-2024-04-05 01:56:32,513 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-04-05 01:56:32,531 - __main__ - DEBUG - app is starting up
-2024-04-05 01:56:42,326 - __main__ - DEBUG - app is sutting down
+2024-04-05 19:54:37,514 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-04-05 19:54:37,533 - config - DEBUG - app and db is starting up
+2024-04-05 19:54:56,806 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2024-04-05 19:54:56,807 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-04-05 19:54:56,953 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2024-04-05 19:54:56,953 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-04-05 19:54:57,091 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2024-04-05 19:54:57,091 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-04-05 19:54:57,195 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-04-05 19:54:57,197 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-04-05 19:54:57,200 - sqlalchemy.engine.Engine - INFO - [generated in 0.00225s] ('logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-04-05 19:54:57,302 - sqlalchemy.engine.Engine - INFO - COMMIT
+2024-04-05 19:54:57,336 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-04-05 19:54:57,338 - sqlalchemy.engine.Engine - INFO - SELECT logs.id, logs.request 
+FROM logs 
+ LIMIT $1::INTEGER
+2024-04-05 19:54:57,339 - sqlalchemy.engine.Engine - INFO - [generated in 0.00090s] (1,)
+2024-04-05 19:54:57,450 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-04-05 19:54:59,089 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-04-05 19:54:59,090 - sqlalchemy.engine.Engine - INFO - SELECT logs.id, logs.request 
+FROM logs 
+ LIMIT $1::INTEGER
+2024-04-05 19:54:59,090 - sqlalchemy.engine.Engine - INFO - [cached since 1.752s ago] (1,)
+2024-04-05 19:54:59,177 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-04-05 19:55:02,222 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-04-05 19:55:02,222 - sqlalchemy.engine.Engine - INFO - SELECT logs.id, logs.request 
+FROM logs 
+ LIMIT $1::INTEGER
+2024-04-05 19:55:02,223 - sqlalchemy.engine.Engine - INFO - [cached since 4.885s ago] (2,)
+2024-04-05 19:55:02,294 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-04-05 19:55:14,306 - config - DEBUG - app is sutting down
+2024-04-05 19:55:14,358 - asyncio - ERROR - Fatal error on SSL transport
+protocol: <asyncio.sslproto.SSLProtocol object at 0x000001C36F6BD480>
+transport: <_ProactorSocketTransport fd=1512 read=<_OverlappedFuture cancelled>>
+Traceback (most recent call last):
+  File "C:\Users\k0stiks\AppData\Local\Programs\Python\Python310\lib\asyncio\sslproto.py", line 690, in _process_write_backlog
+    self._transport.write(chunk)
+  File "C:\Users\k0stiks\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 361, in write
+    self._loop_writing(data=bytes(data))
+  File "C:\Users\k0stiks\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 397, in _loop_writing
+    self._write_fut = self._loop._proactor.send(self._sock, data)
+AttributeError: 'NoneType' object has no attribute 'send'

@@ -7,10 +7,10 @@ from api.video_api import video_router
 app = FastAPI()
 app.include_router(video_router)
 
-
 @app.on_event("startup")
 def shutdown_log():
-    logger.debug("app is starting up")
+    
+    logger.debug("app and db is starting up")
 
 @app.on_event("shutdown")
 def shutdown_log():
@@ -19,4 +19,4 @@ def shutdown_log():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host=config.HOST, port=config.PORT, log_config="log_config.yaml")
+    uvicorn.run(app, host=config.HOST, port=config.PORT, log_config="app/log_config.yaml")
