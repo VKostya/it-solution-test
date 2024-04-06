@@ -1,12 +1,14 @@
 from pydantic import BaseSettings
 import logging
+import os
+
 
 class Config(BaseSettings):
-    HOST: str
-    PORT: int
+    HOST: str = os.getenv("HOST")
+    PORT: int = os.getenv("PORT")
 
-    DATABASE_URL: str
-    
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
+
     class Config:
         env_file = ".env"
 
